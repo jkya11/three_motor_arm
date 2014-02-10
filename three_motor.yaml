@@ -1,0 +1,38 @@
+first_motor_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: first_motor_joint
+    joint_speed: 1.17
+    motor:
+        id: 1
+        init: 844
+        min: 650
+        max: 950
+
+second_motor_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: second_motor_joint
+    joint_speed: 1.17
+    motor:
+        id: 2
+        init: 636
+        min: 400
+        max: 800
+
+third_motor_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: third_motor_joint
+    joint_speed: 1.17
+    motor:
+        id: 3
+        init: 411
+        min: 300
+        max: 600

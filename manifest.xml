@@ -1,0 +1,15 @@
+<package>
+  <description brief="three_motor_arm">
+
+     three_motor_arm
+
+  </description>
+  <author>Luiz Felipe Vecchietti and Cho Kang Un</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/three_motor_arm</url>
+  <depend package="dynamixel_controllers"/>
+
+</package>
+
+

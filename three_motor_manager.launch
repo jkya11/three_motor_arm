@@ -1,0 +1,30 @@
+<launch>
+    <!-- Start the Dynamixel motor manager to control all servos -->
+    <node name="three_motor_manager" pkg="dynamixel_controllers" type="controller_manager.py" required="true" output="screen">
+        <rosparam>
+            namespace: three_motor_manager
+            diagnostics_rate: 10
+            serial_ports:
+                three_motor_arm:
+                    port_name: "/dev/ttyUSB0"
+                    baud_rate: 1000000
+                    min_motor_id: 1
+                    max_motor_id: 3
+                    update_rate: 50
+        </rosparam>
+    </node>
+
+
+    <!-- Load joint controller configuration from YAML file to parameter server -->
+    <rosparam file="$(find three_motor_arm)/three_motor.yaml" command="load"/>
+
+    <!-- Start all joint controllers -->
+    <node name="three_motor_controller_spawner" pkg="dynamixel_controllers" type="controller_spawner.py"
+          args="--manager=three_motor_manager
+                --port=three_motor_arm
+                --type=simple
+                first_motor_controller
+                second_motor_controller
+                third_motor_controller"
+          output="screen"/>
+</launch>
